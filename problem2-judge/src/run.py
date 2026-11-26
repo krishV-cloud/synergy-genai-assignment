@@ -45,14 +45,23 @@ def main() -> None:
     judge = Judge(llm, judge_model)
     cases = load_suite(args.suite)
 
+    def safe(fn, c):
+        for attempt in range(4):
+            try:
+                return fn(c)
+            except Exception as e:
+                print(f"case {c.id} attempt {attempt+1} failed: {str(e)[:80]}", flush=True)
+                import time; time.sleep(45)
+        return None
+
     if args.mode == "pointwise":
-        verdicts = [judge.judge_pointwise(c) for c in cases]
+        verdicts = [v for v in (safe(judge.judge_pointwise, c) for c in cases) if v]
         report = {"mode": "pointwise", "judge_model": judge_model,
                   "generator_model": generator_model,
                   "report": pointwise_report(verdicts),
                   "verdicts": [v.to_dict() for v in verdicts]}
     elif args.mode == "pairwise":
-        pairs = [judge.judge_pairwise(c) for c in cases]
+        pairs = [p for p in (safe(judge.judge_pairwise, c) for c in cases) if p]
         report = {"mode": "pairwise", "judge_model": judge_model,
                   "generator_model": generator_model,
                   "report": pairwise_report(pairs),
