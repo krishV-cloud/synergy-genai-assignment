@@ -31,8 +31,8 @@ class Settings:
             openrouter_base_url=os.environ.get(
                 "OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"
             ),
-            llm_model=os.environ.get("LLM_MODEL", "nvidia/nemotron-3.5-lightning:free"),
-            judge_model=os.environ.get("JUDGE_MODEL", "google/gemma-4-26b-a4b-it:free"),
+            llm_model=os.environ.get("LLM_MODEL", "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"),
+            judge_model=os.environ.get("JUDGE_MODEL", "particle-ai/particle-1:free"),
             embedding_model=os.environ.get(
                 "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
             ),

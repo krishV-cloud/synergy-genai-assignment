@@ -39,7 +39,7 @@ def main() -> None:
     ap.add_argument("--out", default="report.json")
     args = ap.parse_args()
 
-    judge_model = os.environ.get("JUDGE_MODEL", "google/gemma-4-26b-a4b-it:free")
+    judge_model = os.environ.get("JUDGE_MODEL", "particle-ai/particle-1:free")
     generator_model = os.environ.get("GENERATOR_MODEL", "nvidia/nemotron-3.5-lightning:free")
     llm = LLMClient()
     judge = Judge(llm, judge_model)

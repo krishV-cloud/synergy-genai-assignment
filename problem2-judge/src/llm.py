@@ -31,7 +31,7 @@ class LLMClient:
         self,
         api_key: str | None = None,
         base_url: str | None = None,
-        max_retries: int = 5,
+        max_retries: int = 10,
         timeout_s: int = 120,
     ):
         self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY", "")
@@ -54,6 +54,10 @@ class LLMClient:
             "messages": messages,
             "max_tokens": max_tokens,
             "temperature": temperature,
+            # Many free-pool models default to a reasoning mode that can eat
+            # the whole token budget and return content=null. Turn it off so
+            # the answer always lands in message.content.
+            "reasoning": {"enabled": False},
         }
         if response_format:
             payload["response_format"] = response_format

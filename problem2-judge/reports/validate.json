@@ -1,0 +1,30 @@
+{
+  "mode": "validate",
+  "judge_model": "particle-ai/particle-1:free",
+  "test_retest": {
+    "runs_per_case": 2,
+    "n_cases": 2,
+    "verdict_flip_rate": 0.0
+  },
+  "adversarial_probes": {
+    "n_probe_pairs": 1,
+    "times_fooled": 0,
+    "detail": [
+      {
+        "verbose_wrong_id": "probe-vw-1",
+        "verbose_wrong_overall": 1.0,
+        "terse_correct_id": "probe-tc-1",
+        "terse_correct_overall": 5.0,
+        "judge_fooled": false
+      }
+    ]
+  },
+  "gold_agreement": {
+    "n_labelled_cases": 2,
+    "agreement_rate": 1.0
+  },
+  "judge_usage": {
+    "calls": 8,
+    "tokens": 3849
+  }
+}

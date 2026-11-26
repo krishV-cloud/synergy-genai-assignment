@@ -28,6 +28,7 @@ import json
 import math
 import re
 import statistics
+from pathlib import Path
 import time
 from pathlib import Path
 
@@ -150,12 +151,31 @@ def run_eval(settings: Settings, judge_model: str | None = None) -> dict:
         return sorted(keys)
 
     per_question, lat_e2e, lat_ret = [], [], []
+    done_questions = set()
+    partial_path = Path("eval/results.partial.json")
+    if partial_path.exists():
+        try:
+            prev = json.loads(partial_path.read_text())
+            per_question = prev.get("per_question", [])
+            done_questions = {q["question"] for q in per_question}
+            for q in per_question:
+                lat_e2e.append(q["latency_ms"])
+        except Exception:
+            per_question = []
     for i, item in enumerate(questions, 1):
+        if item["question"] in done_questions:
+            print(f"[{i}/{len(questions)}] skip (done): {item['question'][:50]}")
+            continue
         relevant = relevant_keys(item)
         if not relevant and item.get("evidence"):
             raise RuntimeError(f"Q{i} evidence matched no chunks: {item['question'][:60]}")
 
-        resp = service.query(item["question"])
+        try:
+            resp = service.query(item["question"])
+        except Exception as e:
+            per_question.append({"question": item["question"], "error": str(e)[:200]})
+            print(f"[{i}/{len(questions)}] FAILED: {item['question'][:50]}")
+            continue
         retrieved = resp.retrieved_keys[:K]
         lat_e2e.append(resp.latency_ms)
         lat_ret.append(resp.retrieval_ms)
@@ -197,10 +217,12 @@ def run_eval(settings: Settings, judge_model: str | None = None) -> dict:
             "tokens": {"prompt": resp.prompt_tokens, "completion": resp.completion_tokens},
         })
         print(f"[{i}/{len(questions)}] {item['question'][:60]}")
+        Path("eval/results.partial.json").write_text(json.dumps(
+            {"completed": len(per_question), "per_question": per_question}, indent=2))
 
-    scored = [q for q in per_question if q["retrieval"]]
+    scored = [q for q in per_question if q.get("retrieval")]
     agg = lambda f: round(statistics.mean(q["retrieval"][f] for q in scored), 3) if scored else None
-    judged = [q["answer_eval"] for q in per_question if q["answer_eval"]["judge_parse_ok"]]
+    judged = [q["answer_eval"] for q in per_question if q.get("answer_eval") and q["answer_eval"]["judge_parse_ok"]]
     report = {
         "n_questions": len(questions),
         "k": K,
@@ -217,8 +239,8 @@ def run_eval(settings: Settings, judge_model: str | None = None) -> dict:
             "faithfulness_mean": round(statistics.mean(j["faithfulness"] for j in judged), 3) if judged else None,
             "relevance_mean": round(statistics.mean(j["relevance"] for j in judged), 3) if judged else None,
             "judge_parse_failures": len(per_question) - len(judged),
-            "em_mean": round(statistics.mean(q["answer_eval"]["em"] for q in per_question if "em" in q["answer_eval"]), 3) if any("em" in q["answer_eval"] for q in per_question) else None,
-            "f1_mean": round(statistics.mean(q["answer_eval"]["f1"] for q in per_question if "f1" in q["answer_eval"]), 3) if any("f1" in q["answer_eval"] for q in per_question) else None,
+            "em_mean": round(statistics.mean(q["answer_eval"]["em"] for q in per_question if q.get("answer_eval") and "em" in q["answer_eval"]), 3) if any(q.get("answer_eval") and "em" in q["answer_eval"] for q in per_question) else None,
+            "f1_mean": round(statistics.mean(q["answer_eval"]["f1"] for q in per_question if q.get("answer_eval") and "f1" in q["answer_eval"]), 3) if any(q.get("answer_eval") and "f1" in q["answer_eval"] for q in per_question) else None,
         },
         "latency_ms": {
             "retrieval_p50": round(percentile(lat_ret, 50), 1),
@@ -231,8 +253,8 @@ def run_eval(settings: Settings, judge_model: str | None = None) -> dict:
             "completion": sum(q["tokens"]["completion"] for q in per_question),
         },
         "abstention": {
-            "n_probes": sum(1 for q in per_question if q["expect_abstain"]),
-            "correct": sum(1 for q in per_question if q["abstain_correct"]),
+            "n_probes": sum(1 for q in per_question if q.get("expect_abstain")),
+            "correct": sum(1 for q in per_question if q.get("abstain_correct")),
         },
         "per_question": per_question,
     }
