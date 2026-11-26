@@ -1,0 +1,13 @@
+cases:
+  - id: pw-1
+    input: "Explain in one sentence why the sky is blue."
+    system_prompt: "You are a concise physics tutor. Answer in at most two sentences."
+    model_output: "The sky is blue because air molecules scatter short (blue) wavelengths of sunlight more than long ones, a process called Rayleigh scattering."
+    expected_output: "Rayleigh scattering of sunlight by air molecules scatters blue light more than other colors."
+    criteria: null
+  - id: pw-2
+    input: "List two primary colors."
+    system_prompt: "Answer with a short comma-separated list only."
+    model_output: "The two primary colors you asked for are red and blue, and I hope that helps you with your art project today!"
+    expected_output: "red, blue"
+    criteria: null

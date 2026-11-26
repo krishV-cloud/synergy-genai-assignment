@@ -1,0 +1,16 @@
+# Same inputs answered by two configs (prompt v1 vs v2). A = model_output (v1), B = model_output_b (v2).
+cases:
+  - id: ab-1
+    input: "Summarise why databases use indexes."
+    system_prompt: "Answer in at most three sentences."
+    model_output: "Indexes let a database find rows without scanning the whole table. They work like a book index: a sorted structure points to the data's location. The trade-off is extra storage and slower writes."
+    model_output_b: "Indexes are used by databases. They make things faster. This is very important and many databases use them every day for speed."
+    expected_output: "Indexes speed up reads by avoiding full table scans, at the cost of storage and write overhead."
+    criteria: null
+  - id: ab-2
+    input: "What is the capital of Australia?"
+    system_prompt: "Answer in one word."
+    model_output: "Canberra"
+    model_output_b: "Sydney is the most famous city, but the capital is Canberra, chosen as a compromise between Sydney and Melbourne in 1908."
+    expected_output: "Canberra"
+    criteria: null

@@ -1,0 +1,219 @@
+[
+  {
+    "question": "What is retrieval-augmented generation (RAG)?",
+    "evidence": [
+      "Retrieval-augmented generation (RAG) is a technique that enables large language models (LLMs) to retrieve and incorporate new information from external data sources"
+    ],
+    "gold_answer": "A technique that lets LLMs retrieve and incorporate new information from external data sources before responding.",
+    "expected_docs": [
+      "rag.md"
+    ]
+  },
+  {
+    "question": "When was the RAG technique first proposed?",
+    "evidence": [
+      "The technique was first proposed in 2020"
+    ],
+    "gold_answer": "In a 2020 paper.",
+    "expected_docs": [
+      "rag.md"
+    ]
+  },
+  {
+    "question": "What problem does RAG help reduce in chatbots?",
+    "evidence": [
+      "This method helps reduce AI hallucinations"
+    ],
+    "gold_answer": "AI hallucinations, like invented policies or nonexistent legal citations.",
+    "expected_docs": [
+      "rag.md"
+    ]
+  },
+  {
+    "question": "How does a vector database differ from a traditional database in lookups?",
+    "evidence": [
+      "unlike traditional databases which primarily look up records by exact match"
+    ],
+    "gold_answer": "It searches records semantically similar to an input using approximate nearest neighbor search, instead of exact-match lookups.",
+    "expected_docs": [
+      "vector_db.md"
+    ]
+  },
+  {
+    "question": "What is FAISS and who wrote it?",
+    "evidence": [
+      "FAISS (Facebook AI Similarity Search) is an open-source library for similarity search and clustering of vectors"
+    ],
+    "gold_answer": "An open-source library for similarity search and clustering of vectors, from Facebook (Meta) AI.",
+    "expected_docs": [
+      "faiss.md"
+    ]
+  },
+  {
+    "question": "Which languages is FAISS written in, and what wrappers does it have?",
+    "evidence": [
+      "FAISS is written in C++ with complete wrappers for Python and C"
+    ],
+    "gold_answer": "Written in C++, with complete wrappers for Python and C.",
+    "expected_docs": [
+      "faiss.md"
+    ]
+  },
+  {
+    "question": "What does FastAPI use for data validation?",
+    "evidence": [
+      "It uses Pydantic and type hints to validate, serialize and deserialize data"
+    ],
+    "gold_answer": "Pydantic and type hints.",
+    "expected_docs": [
+      "fastapi.md"
+    ]
+  },
+  {
+    "question": "When was FastAPI first released?",
+    "evidence": [
+      "It was first released in 2018"
+    ],
+    "gold_answer": "2018.",
+    "expected_docs": [
+      "fastapi.md"
+    ]
+  },
+  {
+    "question": "Why does cosine similarity not depend on vector magnitude?",
+    "evidence": [
+      "it is the dot product of the vectors divided by the product of their lengths"
+    ],
+    "gold_answer": "Because it divides the dot product by the product of the vector lengths, leaving only the angle between them.",
+    "expected_docs": [
+      "cosine_similarity.md"
+    ]
+  },
+  {
+    "question": "What cosine similarity do two orthogonal vectors have?",
+    "evidence": [
+      "two orthogonal vectors have a similarity of 0"
+    ],
+    "gold_answer": "0.",
+    "expected_docs": [
+      "cosine_similarity.md"
+    ]
+  },
+  {
+    "question": "In information retrieval, what does cosine similarity measure about documents?",
+    "evidence": [
+      "Cosine similarity then gives a useful measure of how similar two documents are likely to be"
+    ],
+    "gold_answer": "How similar two documents are in subject matter, independent of their length.",
+    "expected_docs": [
+      "cosine_similarity.md"
+    ]
+  },
+  {
+    "question": "What is one advantage of cosine similarity for sparse vectors?",
+    "evidence": [
+      "One advantage of cosine similarity is its low complexity, especially for sparse vectors"
+    ],
+    "gold_answer": "Low complexity: only non-zero coordinates need to be considered.",
+    "expected_docs": [
+      "cosine_similarity.md"
+    ]
+  },
+  {
+    "question": "What is gradient descent used for in machine learning?",
+    "evidence": [
+      "Gradient descent is a method for unconstrained mathematical optimization"
+    ],
+    "gold_answer": "Iteratively finding a local minimum of a differentiable function, e.g. minimizing a loss.",
+    "expected_docs": [
+      "gradient_descent.md"
+    ]
+  },
+  {
+    "question": "What kind of models does the transformer architecture underpin today?",
+    "evidence": [
+      "transformer"
+    ],
+    "gold_answer": "Modern large language models and many deep learning systems.",
+    "expected_docs": [
+      "llm.md",
+      "rnn.md",
+      "transformer.md",
+      "word_embedding.md"
+    ]
+  },
+  {
+    "question": "What is a word embedding?",
+    "evidence": [
+      "word embedding"
+    ],
+    "gold_answer": "A representation of words as vectors in a continuous space where similar words are close.",
+    "expected_docs": [
+      "llm.md",
+      "transformer.md",
+      "vector_db.md",
+      "word_embedding.md"
+    ]
+  },
+  {
+    "question": "Is PostgreSQL a relational or non-relational database system?",
+    "evidence": [
+      "PostgreSQL"
+    ],
+    "gold_answer": "Relational (an object-relational database management system).",
+    "expected_docs": [
+      "postgresql.md"
+    ]
+  },
+  {
+    "question": "What distinguishes an RNN from a feedforward neural network?",
+    "evidence": [
+      "recurrent"
+    ],
+    "gold_answer": "It has recurrent connections, giving it memory of previous inputs in the sequence.",
+    "expected_docs": [
+      "llm.md",
+      "rnn.md",
+      "transformer.md",
+      "word_embedding.md"
+    ]
+  },
+  {
+    "question": "Which library covered in the corpus offers GPU-accelerated similarity search via CUDA?",
+    "evidence": [
+      "Some of the most useful algorithms are implemented on the GPU using CUDA"
+    ],
+    "gold_answer": "FAISS.",
+    "expected_docs": [
+      "faiss.md"
+    ]
+  },
+  {
+    "question": "Which two technologies in the corpus both help ground LLM answers in external data?",
+    "evidence": [
+      "retrieval-augmented generation (RAG)",
+      "vector database"
+    ],
+    "gold_answer": "Retrieval-augmented generation and vector databases.",
+    "expected_docs": [
+      "faiss.md",
+      "llm.md",
+      "rag.md",
+      "vector_db.md"
+    ]
+  },
+  {
+    "question": "What is the airspeed velocity of an unladen swallow?",
+    "evidence": [],
+    "gold_answer": null,
+    "expect_abstain": true,
+    "expected_docs": []
+  },
+  {
+    "question": "Who won the FIFA World Cup in 2022?",
+    "evidence": [],
+    "gold_answer": null,
+    "expect_abstain": true,
+    "expected_docs": []
+  }
+]

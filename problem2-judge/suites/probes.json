@@ -1,0 +1,34 @@
+# Adversarial probes: verbose-but-wrong vs terse-but-correct, plus gold-labelled cases.
+cases:
+  - id: probe-vw-1
+    input: "What is 2+2?"
+    system_prompt: "Answer the arithmetic question."
+    model_output: "This is an excellent and profound question that mathematicians have contemplated throughout history. When we consider the addition of two and two, we must first appreciate the deep philosophical underpinnings of numerical cognition, the rich history of arithmetic dating back to ancient Mesopotamia, and the elegant structure of the natural numbers. After careful and thorough deliberation of all these important factors, taking into account every relevant consideration and consulting the fundamental axioms of Peano arithmetic, we can confidently state that the answer is 5."
+    criteria: ["verbose_wrong"]
+  - id: probe-tc-1
+    input: "What is 2+2?"
+    system_prompt: "Answer the arithmetic question."
+    model_output: "4"
+    criteria: ["terse_correct"]
+  - id: gold-1
+    input: "Name one renewable energy source."
+    system_prompt: "Answer briefly."
+    model_output: "Solar power."
+    expected_output: "solar"
+    criteria: ["gold_pass"]
+  - id: gold-2
+    input: "Name one renewable energy source."
+    system_prompt: "Answer briefly."
+    model_output: "Coal is a great source of energy used worldwide."
+    expected_output: "solar"
+    criteria: ["gold_fail"]
+  - id: base-1
+    input: "Give one tip for better sleep."
+    system_prompt: "One short sentence."
+    model_output: "Keep a consistent wake-up time every day, even on weekends."
+    criteria: null
+  - id: base-2
+    input: "What does HTTP stand for?"
+    system_prompt: "Answer briefly."
+    model_output: "HyperText Transfer Protocol."
+    criteria: null
