@@ -80,6 +80,11 @@ class LLMClient:
                     log.warning("rate limited (429), retrying in %.0fs", wait)
                     time.sleep(wait)
                     continue
+                if r.status_code == 400 and "reasoning" in r.text.lower():
+                    # some providers make reasoning mandatory; ask for it
+                    # excluded from the response instead of disabled
+                    payload["reasoning"] = {"exclude": True}
+                    continue
                 r.raise_for_status()
                 data = r.json()
                 choice = data["choices"][0]
