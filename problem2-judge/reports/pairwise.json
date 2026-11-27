@@ -1,0 +1,91 @@
+{
+  "mode": "pairwise",
+  "judge_model": "particle-ai/particle-1:free",
+  "generator_model": "nvidia/nemotron-3.5-lightning:free",
+  "report": {
+    "n_cases": 2,
+    "n_judged": 2,
+    "position_flip_rate": 0.0,
+    "wins": {
+      "A": 2,
+      "B": 0,
+      "tie": 0
+    },
+    "win_rate_A": 1.0,
+    "winner": "A"
+  },
+  "verdicts": [
+    [
+      {
+        "case_id": "ab-1",
+        "mode": "pairwise",
+        "scores": {
+          "correctness": 5,
+          "faithfulness": 5,
+          "completeness": 5
+        },
+        "rationale": "Answer A correctly explains that indexes avoid full table scans, describes the mechanism (sorted structure pointing to data), and notes the trade-off of extra storage and slower writes, matching the reference. Answer B is vague and repetitive, omitting the mechanism and the write/storage trade-off, so it is less correct and complete.",
+        "overall": null,
+        "winner": "A",
+        "order": "AB",
+        "parse_ok": true,
+        "raw_response": "{\"winner\": \"A\", \"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5}, \"rationale\": \"Answer A correctly explains that indexes avoid full table scans, describes the mechanism (sorted structure pointing to data), and notes the trade-off of extra storage and slower writes, matching the reference. Answer B is vague and repetitive, omitting the mechanism and the write/storage trade-off, so it is less correct and complete.\"}",
+        "judge_model": "particle-ai/particle-1:free"
+      },
+      {
+        "case_id": "ab-1",
+        "mode": "pairwise",
+        "scores": {
+          "correctness": 5,
+          "faithfulness": 5,
+          "completeness": 5
+        },
+        "rationale": "Answer B correctly explains that indexes avoid full table scans, describes the mechanism (sorted structure pointing to data), and notes the trade-off of extra storage and slower writes, matching the reference. Answer A is vague, repetitive, and omits the mechanism and trade-offs, so it is far less correct and complete.",
+        "overall": null,
+        "winner": "A",
+        "order": "BA",
+        "parse_ok": true,
+        "raw_response": "{\"winner\": \"B\", \"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5}, \"rationale\": \"Answer B correctly explains that indexes avoid full table scans, describes the mechanism (sorted structure pointing to data), and notes the trade-off of extra storage and slower writes, matching the reference. Answer A is vague, repetitive, and omits the mechanism and trade-offs, so it is far less correct and complete.\"}",
+        "judge_model": "particle-ai/particle-1:free"
+      }
+    ],
+    [
+      {
+        "case_id": "ab-2",
+        "mode": "pairwise",
+        "scores": {
+          "correctness": 5,
+          "faithfulness": 5,
+          "completeness": 5
+        },
+        "rationale": "Answer A gives exactly the correct one-word answer 'Canberra', fully obeying the 'Answer in one word' instruction. Answer B is factually correct but violates the one-word format constraint and adds extra unsupported detail, so it fails instruction_following despite being correct in content.",
+        "overall": null,
+        "winner": "A",
+        "order": "AB",
+        "parse_ok": true,
+        "raw_response": "{\"winner\": \"A\", \"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5}, \"rationale\": \"Answer A gives exactly the correct one-word answer 'Canberra', fully obeying the 'Answer in one word' instruction. Answer B is factually correct but violates the one-word format constraint and adds extra unsupported detail, so it fails instruction_following despite being correct in content.\"}",
+        "judge_model": "particle-ai/particle-1:free"
+      },
+      {
+        "case_id": "ab-2",
+        "mode": "pairwise",
+        "scores": {
+          "correctness": 5,
+          "faithfulness": 5,
+          "completeness": 5
+        },
+        "rationale": "Answer B correctly states Canberra and obeys the one-word format instruction. Answer A is factually correct but violates the explicit one-word constraint, so it fails instruction_following despite being accurate.",
+        "overall": null,
+        "winner": "A",
+        "order": "BA",
+        "parse_ok": true,
+        "raw_response": "{\"winner\": \"B\", \"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5}, \"rationale\": \"Answer B correctly states Canberra and obeys the one-word format instruction. Answer A is factually correct but violates the explicit one-word constraint, so it fails instruction_following despite being accurate.\"}",
+        "judge_model": "particle-ai/particle-1:free"
+      }
+    ]
+  ],
+  "judge_usage": {
+    "calls": 4,
+    "tokens": 2091
+  }
+}

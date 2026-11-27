@@ -1,5 +1,5 @@
 {
-  "completed": 8,
+  "completed": 21,
   "per_question": [
     {
       "question": "What is retrieval-augmented generation (RAG)?",
@@ -214,6 +214,341 @@
       "latency_ms": 566.2,
       "tokens": {
         "prompt": 229,
+        "completion": 16
+      }
+    },
+    {
+      "question": "Why does cosine similarity not depend on vector magnitude?",
+      "answer": "Cosine similarity is defined as the dot product of two vectors divided by the product of their lengths, which means it is based on the angle between the vectors rather than their magnitudes [669588].",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer accurately restates the context's definition (dot product divided by product of lengths) and correctly explains that this makes similarity depend on angle rather than magnitude, directly answering the question.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.34
+      },
+      "latency_ms": 823.4,
+      "tokens": {
+        "prompt": 906,
+        "completion": 45
+      }
+    },
+    {
+      "question": "What cosine similarity do two orthogonal vectors have?",
+      "answer": "Two orthogonal vectors have a cosine similarity of 0. [d51bc7]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 0.4
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly states that orthogonal vectors have cosine similarity 0, which is explicitly supported by the retrieved context.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.182
+      },
+      "latency_ms": 594.9,
+      "tokens": {
+        "prompt": 877,
+        "completion": 20
+      }
+    },
+    {
+      "question": "In information retrieval, what does cosine similarity measure about documents?",
+      "answer": "Cosine similarity measures the similarity between two documents based on their term frequency vectors, providing a value that ranges from 0 to 1 in information retrieval contexts, indicating how closely related the documents are in terms of subject matter regardless of their length [a300bc].",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer accurately reflects the context that cosine similarity measures document similarity via term frequency vectors, ranges 0 to 1 in IR, and is independent of document length, directly answering the question.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.286
+      },
+      "latency_ms": 906.5,
+      "tokens": {
+        "prompt": 907,
+        "completion": 57
+      }
+    },
+    {
+      "question": "What is one advantage of cosine similarity for sparse vectors?",
+      "answer": "One advantage of cosine similarity for sparse vectors is that it has low complexity, as only the non-zero coordinates need to be considered. [03c1a7]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 0.5,
+        "ndcg@k": 0.631,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly restates the context's stated advantage of low complexity for sparse vectors, considering only non-zero coordinates, with no unsupported claims.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.485
+      },
+      "latency_ms": 757.7,
+      "tokens": {
+        "prompt": 933,
+        "completion": 36
+      }
+    },
+    {
+      "question": "What is gradient descent used for in machine learning?",
+      "answer": "Gradient descent is used in machine learning for minimizing the cost or loss function. [bb1235]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly states gradient descent minimizes the cost or loss function in machine learning, which is explicitly supported by the context.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.071
+      },
+      "latency_ms": 534.3,
+      "tokens": {
+        "prompt": 849,
+        "completion": 24
+      }
+    },
+    {
+      "question": "What kind of models does the transformer architecture underpin today?",
+      "answer": "The transformer architecture is used in large-scale natural language processing, computer vision (vision transformers), reinforcement learning, audio, multimodal learning, robotics, and playing chess, and has led to the development of pre-trained systems such as generative pre-trained transformers (GPTs) [5a657b].",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 0.071,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 1.0
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly lists applications supported verbatim by the context, though it emphasizes application domains rather than explicitly naming LLMs as the reference does.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.083
+      },
+      "latency_ms": 1034.2,
+      "tokens": {
+        "prompt": 856,
+        "completion": 68
+      }
+    },
+    {
+      "question": "What is a word embedding?",
+      "answer": "A word embedding is a representation of a word, typically a real\u2011valued vector, that encodes the meaning of the word so that words with similar meanings are close together in the vector space [2af583].",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 0.263,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 1.0
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly restates the context's definition of a word embedding as a real-valued vector encoding meaning with similar words close in vector space, with no unsupported claims.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.327
+      },
+      "latency_ms": 866.9,
+      "tokens": {
+        "prompt": 989,
+        "completion": 47
+      }
+    },
+    {
+      "question": "Is PostgreSQL a relational or non-relational database system?",
+      "answer": "PostgreSQL is a relational database management system (RDBMS). [422499]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 0.032,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 1.0
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer directly states PostgreSQL is a relational database management system, which is fully supported by the context's description of it as a 'relational database management system (RDBMS).'",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.4
+      },
+      "latency_ms": 555.8,
+      "tokens": {
+        "prompt": 881,
+        "completion": 24
+      }
+    },
+    {
+      "question": "What distinguishes an RNN from a feedforward neural network?",
+      "answer": "An RNN is a neural network that maps an input\u202fxt into an output\u202fyt while maintaining a hidden vector\u202fht that serves as \u201cmemory\u201d of previous inputs and outputs\u202f[4d95fa]. In contrast, a feedforward neural network processes inputs without any recurrent \u201cmemory\u201d of prior steps, producing outputs based solely on the current input\u202f[4d95fa].",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 0.022,
+        "hit": 1.0,
+        "mrr": 0.5,
+        "ndcg@k": 0.214,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 1,
+        "relevance": 2,
+        "rationale": "The RNN memory claim is well supported, but the description of feedforward networks as having no recurrent memory is not stated in the retrieved context, making it a minor unsupported detail.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.176
+      },
+      "latency_ms": 1242.6,
+      "tokens": {
+        "prompt": 918,
+        "completion": 82
+      }
+    },
+    {
+      "question": "Which library covered in the corpus offers GPU-accelerated similarity search via CUDA?",
+      "answer": "FAISS [561092] [bf8b81]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 1.0,
+        "hit": 1.0,
+        "mrr": 1.0,
+        "ndcg@k": 1.0,
+        "context_precision": 0.4
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 2,
+        "rationale": "The answer correctly identifies FAISS, which the context states implements algorithms on the GPU using CUDA, directly answering the question.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.0
+      },
+      "latency_ms": 534.2,
+      "tokens": {
+        "prompt": 465,
+        "completion": 19
+      }
+    },
+    {
+      "question": "Which two technologies in the corpus both help ground LLM answers in external data?",
+      "answer": "RAG and retrieval\u2011augmented generation both help ground LLM answers in external data. [382fb8] [4e8079]",
+      "had_context": true,
+      "expect_abstain": false,
+      "abstain_correct": null,
+      "retrieval": {
+        "recall@k": 0.026,
+        "hit": 1.0,
+        "mrr": 0.5,
+        "ndcg@k": 0.214,
+        "context_precision": 0.2
+      },
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 1,
+        "rationale": "The answer's claim that RAG grounds LLM answers in external data is supported by the context, but it names the same technology twice rather than identifying two distinct technologies, so it only partially answers the question.",
+        "judge_parse_ok": true,
+        "em": 0.0,
+        "f1": 0.211
+      },
+      "latency_ms": 632.3,
+      "tokens": {
+        "prompt": 901,
+        "completion": 36
+      }
+    },
+    {
+      "question": "What is the airspeed velocity of an unladen swallow?",
+      "answer": "I don't have relevant context in the corpus to answer that question. [7fba23]",
+      "had_context": true,
+      "expect_abstain": true,
+      "abstain_correct": true,
+      "retrieval": null,
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 0,
+        "rationale": "The context (just the word 'meters') genuinely lacks the answer, so the abstention is faithful, but it does not answer the question at all.",
+        "judge_parse_ok": true
+      },
+      "latency_ms": 1627.9,
+      "tokens": {
+        "prompt": 135,
+        "completion": 23
+      }
+    },
+    {
+      "question": "Who won the FIFA World Cup in 2022?",
+      "answer": "I don't have relevant context in the corpus to answer that question.",
+      "had_context": true,
+      "expect_abstain": true,
+      "abstain_correct": true,
+      "retrieval": null,
+      "answer_eval": {
+        "faithfulness": 2,
+        "relevance": 0,
+        "rationale": "The retrieved context is garbled citation fragments with no mention of Argentina or the 2022 World Cup winner, so the system's claim of lacking relevant context is accurate, but it fails to answer the question.",
+        "judge_parse_ok": true
+      },
+      "latency_ms": 587.9,
+      "tokens": {
+        "prompt": 239,
         "completion": 16
       }
     }

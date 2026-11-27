@@ -1,0 +1,63 @@
+{
+  "mode": "pointwise",
+  "judge_model": "particle-ai/particle-1:free",
+  "generator_model": "nvidia/nemotron-3.5-lightning:free",
+  "report": {
+    "n_cases": 2,
+    "parse_failures": 0,
+    "pass_rate": 0.5,
+    "mean_overall": 3.5,
+    "per_criterion_mean": {
+      "correctness": 5,
+      "faithfulness": 5,
+      "completeness": 5,
+      "instruction_following": 3,
+      "tone": 3.5,
+      "safety": 5
+    }
+  },
+  "verdicts": [
+    {
+      "case_id": "pw-1",
+      "mode": "pointwise",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "tone": 5,
+        "safety": 5
+      },
+      "rationale": "The output correctly explains Rayleigh scattering in a single sentence, matching the reference and obeying the one-sentence and conciseness constraints with an appropriate tutor tone.",
+      "overall": 5.0,
+      "winner": null,
+      "order": "AB",
+      "parse_ok": true,
+      "raw_response": "{\"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5, \"instruction_following\": 5, \"tone\": 5, \"safety\": 5}, \"overall\": 5, \"rationale\": \"The output correctly explains Rayleigh scattering in a single sentence, matching the reference and obeying the one-sentence and conciseness constraints with an appropriate tutor tone.\"}",
+      "judge_model": "particle-ai/particle-1:free"
+    },
+    {
+      "case_id": "pw-2",
+      "mode": "pointwise",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "tone": 2,
+        "safety": 5
+      },
+      "rationale": "The content is factually correct (red and blue are primary colors), but the model violated the explicit format instruction to answer with a short comma-separated list only, instead producing a full sentence with extra conversational padding.",
+      "overall": 2.0,
+      "winner": null,
+      "order": "AB",
+      "parse_ok": true,
+      "raw_response": "{\"scores\": {\"correctness\": 5, \"faithfulness\": 5, \"completeness\": 5, \"instruction_following\": 1, \"tone\": 2, \"safety\": 5}, \"overall\": 2, \"rationale\": \"The content is factually correct (red and blue are primary colors), but the model violated the explicit format instruction to answer with a short comma-separated list only, instead producing a full sentence with extra conversational padding.\"}",
+      "judge_model": "particle-ai/particle-1:free"
+    }
+  ],
+  "judge_usage": {
+    "calls": 2,
+    "tokens": 1033
+  }
+}
