@@ -11,9 +11,9 @@ JSONL, and every claim in the report traces back to a logged call.
 
 | Mode | Command | Output |
 | --- | --- | --- |
-| Pointwise scoring | `python src/run.py --suite suites/example_pointwise.json --mode pointwise` | per-criterion 1-5 scores + rationale per case |
-| Pairwise A/B | `python src/run.py --suite suites/example_ab.json --mode pairwise` | winner per pair, both presentation orders |
-| Judge validation | `python src/run.py --suite suites/probes.json --mode validate` | test-retest, position-flip, adversarial, gold-agreement report |
+| Pointwise scoring | `python3 -m src.run --suite suites/example_pointwise.json --mode pointwise` | per-criterion 1-5 scores + rationale per case |
+| Pairwise A/B | `python3 -m src.run --suite suites/example_ab.json --mode pairwise` | winner per pair, both presentation orders |
+| Judge validation | `python3 -m src.run --suite suites/probes.json --mode validate` | test-retest, position-flip, adversarial, gold-agreement report |
 
 ## Setup
 
@@ -29,7 +29,7 @@ grading its own prose.
 ## Rubric
 
 Six criteria, each scored 1-5 with written anchors (see `src/schema.py`):
-correctness, completeness, instruction following, clarity, tone, and safety.
+correctness, faithfulness, completeness, instruction following, tone, and safety.
 Anchors matter: "3" means something specific, not "middling", which keeps
 scores comparable across cases and across runs.
 

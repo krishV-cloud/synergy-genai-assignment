@@ -24,7 +24,7 @@ api.py  (FastAPI: POST /query, POST /ingest, GET /health)
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env   # add your ANTHROPIC_API_KEY
+cp .env.example .env   # set OPENROUTER_API_KEY
 # put corpus files in ./data/corpus (pdf/html/md)
 uvicorn src.api:app --reload
 curl -X POST localhost:8000/ingest
@@ -50,5 +50,7 @@ pipeline), p50/p95 latency, and per-question token usage.
 
 ## Discussion
 
-(when would you switch back to managed; was retrieval or generation the
-weak link - filled in with measured results)
+Measured on 21 questions (k=5): Recall@5 0.548, Hit Rate 0.789, MRR 0.684, nDCG 0.668,
+context precision 0.305; judge faithfulness 1.905/2, relevance 1.429/2; retrieval p50 16.6 ms,
+e2e p95 1627.9 ms; abstention 2/2. Retrieval (recall 0.55) is the weaker link, not generation.
+Switch back to a managed DB for multi-region reads, >10M vectors with tight p99, or no ops capacity.
